@@ -25,29 +25,29 @@
 
 (LOOP)
         // Setup i counter variable for SETSCREEN loop.
-        @8191
+        @8191   // 8192 total words address the screen; we already address 0x4000.
         D=A
         @i
         M=D
 
-        // Set default color to all black (key down)
+        // Set default color to all black (key down).
         @color
-        M=-1
+        M=-1    // -1 represented as 1111111111111111 in Hack.
 
-        // Pressed key? Jump to SETSCREEN
-        @24576
+        // Pressed key? Jump to SETSCREEN.
+        @KBD
         D=M
         @SETSCREEN
         D;JNE
 
-        // No pressed key? Set color to white, then jump to SETSCREEN
+        // No pressed key? Set color to white, then jump to SETSCREEN.
         @color
-        M=0
+        M=0     // RAM[@color] = white
         @SETSCREEN
         0;JMP
 
 (SETSCREEN)
-        // If i < 0, send back to parent loop
+        // If i < 0, send back to parent loop.
         @i
         D=M
         @LOOP
@@ -55,16 +55,16 @@
 
         // Calculate 16384+i, the current screenword.
         @SCREEN
-        D=D+A
+        D=D+A   // i=i+@SCREEN
         @screenword
         M=D
 
-        // Set color to white or black
+        // Set color at current screenword to white or black.
         @color
-        D=M
+        D=M     // Pull the color from RAM[@color], store in D register.
         @screenword
-        A=M
-        M=D
+        A=M     // Pull the screenword from data memory, becomes address.
+        M=D     // RAM[RAM[@screenword]] = RAM[@color].
 
         // Decrement i.
         @i
