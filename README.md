@@ -16,7 +16,8 @@ HDL for Bit, Register, PC, RAM8, RAM64, RAM512, RAM4K, RAM16K chips.
 ASM and assembled Hack machine code for Mult and Fill ROM programs.
 
 ### Chapter 05 - Computer Architecture
-#### In Progress.
+HDL for Memory, Mux8Way, CPU chips.
+HDL for Hack machine.
 
 ### Chapter 06 - Assembler
 #### In Progress.
