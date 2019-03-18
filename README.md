@@ -20,7 +20,8 @@ HDL for Memory, Mux8Way, CPU chips.
 HDL for Hack machine.
 
 ### Chapter 06 - Assembler
-#### In Progress.
+Python3 for Hack Assembler and Hack Assembler(No Symbols).
+Python3 for Assembler Modules Code, Command, Parser, and SymbolTable.
 
 ### Chapter 07 - VM I: Stack Arithmetic
 #### In Progress.
