@@ -16,15 +16,21 @@ HDL for Bit, Register, PC, RAM8, RAM64, RAM512, RAM4K, RAM16K chips.
 ASM and assembled Hack machine code for Mult and Fill ROM programs.
 
 ### Chapter 05 - Computer Architecture
-HDL for Memory, Mux8Way, CPU chips.
+HDL for Memory, Mux8Way, CPU chips.\
 HDL for Hack machine.
 
 ### Chapter 06 - Assembler
-Python3 for Hack Assembler and Hack Assembler(No Symbols).
+Python3 for Hack Assembler and Hack Assembler(No Symbols).\
 Python3 for Assembler Modules Code, Command, Parser, and SymbolTable.
+* **UPDATE 3/18/19:** Assembler module Parser v2.0 is now out! This adds support for macro-commands.
+  * *For an example of this*, take a look at Max_no_macros.asm, Max_macros.asm, and their respective Hack files in the 06 project directory.
+  * *Note that the Hack machine code is equivalent*, while the asm file with macro-commands has essentially halved.
+Also take note that all A-Instructions have essentially 'piggy backed' onto C-Instructions using brackets.
+  * *Macro-commands are like so:* 'M=D[123]' is equivalent to '@123' followed by 'M=D'.
+Of course, this also works for symbols: 'M=D[foo]' is equivalent to '@foo' followed by 'M=D'.
 
 ### Chapter 07 - VM I: Stack Arithmetic
-#### In Progress.
+#### In Progress (soon...)
 
 ### Chapter 08 - VM II: Program Control
 #### In Progress.

@@ -1,0 +1,12 @@
+   D=M[R0]
+   D=D-M[R1]
+   D;JGT[OUTPUT_FIRST]
+   D=M[R1]
+   0;JMP[OUTPUT_D]
+(OUTPUT_FIRST)
+   D=M[R0]
+(OUTPUT_D)
+   M=D[R2]
+(INFINITE_LOOP)
+   0;JMP[INFINITE_LOOP]
+// ASM lines: 11 (down from 19)

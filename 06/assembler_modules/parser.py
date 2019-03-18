@@ -6,6 +6,12 @@ Encapsulates access to the input code (ASM file). Reads
 a Hack ASM command, parses it, and provides convenient access
 to the command's components (fields and symbols). In addition,
 removes all whitespace, comments, and empty lines.
+
+Version 1.0: Standard Parser Module as described in TECS.
+Version 2.0: (3/18/19) Added support for macro-commands, for
+             example: 'M=D[123]' is equivalent to '@123'
+             followed by 'M=D'. Of course, this also works
+             for symbols: 'M=D[foo]' == '@foo' ... 'M=D'.
 """
 
 
@@ -14,13 +20,12 @@ from .command import Command
 
 
 __author__ = "Merrick Ryman"
-__version__ = "1.0"
+__version__ = "2.0"
 
 
 class Parser:
     def __init__(self, asm_path):
         self.asm_path = asm_path
-
         self._asm_commands = None
         self._asm_command_current = None
         self._asm_commands_iter = None
@@ -36,9 +41,27 @@ class Parser:
         to get the next command.
         """
         with open(self.asm_path, 'r') as asm_file:
-            lines = asm_file.readlines() # Get the list of lines (strings) from the asm file
-            lines = list(map(lambda x: x[:x.find('//')].replace(' ', ''), lines)) # Remove comments and whitespace
-            self._asm_commands = list(filter(None, lines)) # Remove empty lines, extract to instance
+            lines = asm_file.readlines()
+            lines = list(map(lambda x: x[:x.find('//')].replace(' ', ''), lines))
+            lines = list(filter(None, lines))
+            self._asm_commands = self._split_macro_commands(lines)
+
+
+    def _split_macro_commands(self, commands):
+        """Splits all macro-commands found in the ASM
+        source into its respective A-Instruction and
+        C-Instruction parts. Returns the formatted
+        list (source)
+        """
+        formatted_list = []
+        for x in commands:
+            macro = re.findall('(?<=\[).+?(?=\])', x)
+            if len(macro) > 0:
+                formatted_list.append( ('@' + macro[0]) )
+                formatted_list.append(x[:x.find('[')])
+            else:
+                formatted_list.append(x)
+        return formatted_list
 
 
     def reset_iter(self):
