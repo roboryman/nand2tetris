@@ -21,7 +21,7 @@ HDL for Hack machine.
 
 ### Chapter 06 - Assembler
 Python3 for Hack Assembler and Hack Assembler(No Symbols).\
-Python3 for Assembler Modules Code, Command, Parser, and SymbolTable.
+Python3 for Assembler modules Code, Command, Parser, and SymbolTable.
 * **UPDATE 3/18/19:** Assembler module Parser v2.0 is now out! This adds support for macro-commands.
   * *For an example of this*, take a look at Max_no_macros.asm, Max_macros.asm, and their respective Hack files in the 06 project directory.
   * *Note that the Hack machine code is equivalent*, while the asm file with macro-commands has essentially halved.
@@ -30,7 +30,8 @@ Also take note that all A-Instructions have essentially 'piggy backed' onto C-In
 Of course, this also works for symbols: 'M=D[foo]' is equivalent to '@foo' followed by 'M=D'.
 
 ### Chapter 07 - VM I: Stack Arithmetic
-#### In Progress (soon...)
+Python3 for Virtual Machine Translator.\
+Python3 for VMT modules CodeWriter, Parser, and Command.
 
 ### Chapter 08 - VM II: Program Control
 #### In Progress.
