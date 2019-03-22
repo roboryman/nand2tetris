@@ -12,6 +12,10 @@ remove all white space and comments.
 from .command import Command
 
 
+__author__ = "Merrick Ryman"
+__version__ = "1.0"
+
+
 class Parser:
     def __init__(self, in_path):
         self.in_path = in_path

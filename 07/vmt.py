@@ -16,6 +16,10 @@ from vmt_modules.command import Command
 from vmt_modules.code_writer import CodeWriter
 
 
+__author__ = "Merrick Ryman"
+__version__ = "1.1"
+
+
 def main():
     vm_path = Path(sys.argv[-1])
     vm_glob = []
@@ -35,6 +39,7 @@ def main():
 
     code_writer = CodeWriter(asm_path)
     for vm_file in vm_glob:
+        code_writer.set_file_name(vm_file.name)
         vm_parser = Parser(vm_file)
         while vm_parser.has_more_commands():
             if vm_parser.command_type() is Command.C_ARITHMETIC:

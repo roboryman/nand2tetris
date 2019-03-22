@@ -9,19 +9,24 @@ Translates given VM commands into Hack ASM code.
 from .command import Command
 
 
+__author__ = "Merrick Ryman"
+__version__ = "1.1"
+
+
 class CodeWriter:
     def __init__(self, out_path):
         self.out_path = out_path
         self._dynamic_labels = {'lt':0, 'eq':0, 'gt':0}
         self._bool_jmp_logic_symbol = ''
         self._asm_file = open(out_path, 'w+')
+        self._vm_file_name = None
 
 
     def set_file_name(self, file_name):
         """Informs the code writer that the
         translation of a new VM file has started.
-        (Possibly for dynamic label making)?
         """
+        self._vm_file_name = file_name[:file_name.find('.')]
 
 
     def write_arithmetic(self, command):
@@ -105,8 +110,7 @@ class CodeWriter:
                     self._asm_file.write('@5\n')
                     self._asm_file.write('A=D+A\n')
                 elif segment == 'static':
-                    self._asm_file.write('@16\n')
-                    self._asm_file.write('A=D+A\n')
+                    self._asm_file.write('@'+self._vm_file_name+'.'+str(index)+'\n')
                 self._asm_file.write('D=M\n')
                 self._asm_file.write('@SP\n')
                 self._asm_file.write('AM=M+1\n')
@@ -136,8 +140,8 @@ class CodeWriter:
                     self._asm_file.write('@5\n')
                     self._asm_file.write('D=D+A\n')
                 elif segment == 'static':
-                    self._asm_file.write('@16\n')
-                    self._asm_file.write('D=D+A\n')
+                    self._asm_file.write('@'+self._vm_file_name+'.'+str(index)+'\n')
+                    self._asm_file.write('D=A\n') # d = d + a
                 self._asm_file.write('@R13\n')
                 self._asm_file.write('M=D\n')
                 self._asm_file.write('@SP\n')

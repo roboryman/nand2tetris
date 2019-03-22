@@ -1,6 +1,5 @@
 # nand2tetris (The Elements of Computing Systems)
-My code for the hardware and software projects as described in The Elements of Computing Systems by Noam Nisan and Shimon Schocken.
-
+My code for the hardware and software projects as described in The Elements of Computing Systems by Noam Nisan and Shimon Schocken.\
 Abstraction rules all.
 
 ### Chapter 01 - Boolean Logic
@@ -29,11 +28,11 @@ Also take note that all A-Instructions have essentially 'piggy backed' onto C-In
   * *Macro-commands are like so:* 'M=D[123]' is equivalent to '@123' followed by 'M=D'.
 Of course, this also works for symbols: 'M=D[foo]' is equivalent to '@foo' followed by 'M=D'.
 
-### Chapter 07 - VM I: Stack Arithmetic
+### Chapter 07 - Virtual Machine I: Stack Arithmetic
 Python3 for Virtual Machine Translator.\
 Python3 for VMT modules CodeWriter, Parser, and Command.
 
-### Chapter 08 - VM II: Program Control
+### Chapter 08 - Virtual Machine II: Program Control
 #### In Progress.
 
 ### Chapter 09 - High-Level Language
