@@ -23,7 +23,7 @@ __version__ = "1.1"
 def main():
     vm_path = Path(sys.argv[-1])
     vm_glob = []
-    asm_path = str(vm_path.parent) + '\\' + (vm_path.name[:vm_path.name.find('.')] + '.asm')
+    asm_path = str(vm_path.parent) + '/' + (vm_path.name[:vm_path.name.find('.')] + '.asm')
 
     if vm_path.name == 'vmt.py':
         raise IOError('Please supply a .vm source file, or a directory of .vm source files.')
@@ -31,7 +31,7 @@ def main():
         vm_glob = list(vm_path.glob('*.vm'))
         if not vm_glob:
             raise RuntimeError('No *.vm files found in supplied directory.')
-        asm_path = str(vm_path.parent) + '\\' + vm_path.name + '\\' + vm_path.name + '.asm'
+        asm_path = str(vm_path.parent) + '/' + vm_path.name + '/' + vm_path.name + '.asm'
     elif vm_path.is_file():
         if vm_path.suffix != '.vm':
             raise IOError('Valid VM source file not supplied.')
