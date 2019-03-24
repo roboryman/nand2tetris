@@ -31,9 +31,12 @@ Of course, this also works for symbols: 'M=D[foo]' is equivalent to '@foo' follo
 ### Chapter 07 - Virtual Machine I: Stack Arithmetic
 Python3 for Virtual Machine Translator.\
 Python3 for VMT modules CodeWriter, Parser, and Command.
+Implements Stage I and Stage II of the VM.
 
 ### Chapter 08 - Virtual Machine II: Program Control
-#### In Progress.
+Python3 for Virtual Machine Translator.\
+Python3 for VMT modules CodeWriter, Parser, and Command.
+Implements Stage I - Stage IV of the VM.
 
 ### Chapter 09 - High-Level Language
 #### In Progress.
