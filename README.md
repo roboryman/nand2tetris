@@ -39,7 +39,7 @@ Python3 for VMT modules CodeWriter, Parser, and Command.
 Implements Stage I - Stage IV of the VM.
 
 ### Chapter 09 - High-Level Language
-#### In Progress.
+Jack for the PerfectlyBalanced program.
 
 ### Chapter 10 - Compiler I: Syntax Analysis
 #### In Progress.

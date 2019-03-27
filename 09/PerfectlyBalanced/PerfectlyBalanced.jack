@@ -1,0 +1,45 @@
+/** Represents the input string and its constituents. */
+class PerfectlyBalanced {
+  field String s;
+  field int length;
+  field int x, y;
+
+  constructor PerfectlyBalanced new(String the_string) {
+    let s = the_string;
+    let length = the_string.length();
+    let x = 0;
+    let y = 0;
+    do count();
+
+    return this;
+  }
+
+  method void dispose() {
+    do Memory.deAlloc(this);
+    return;
+  }
+
+  method void count() {
+    var int i;
+    var char c;
+    let i = 0;
+    while (i < length) {
+      let c = s.charAt(i);
+      if (c = 88) { let x = x + 1; }
+      if (c = 89) { let y = y + 1; }
+      let i = i + 1;
+    }
+
+    return;
+  }
+
+  method void output() {
+    do Output.printString(s);
+    do Output.printString(": ");
+    if (x = y) { do Output.printString("Perfectly balanced, as all things should be."); }
+    else { do Output.printString("There is in-balance in the universe..."); }
+    do Output.println();
+
+    return;
+  }
+}

@@ -1,0 +1,42 @@
+// Computes whether the same number of x's and y's appear in the input.
+class Main {
+  function void main() {
+    var PerfectlyBalanced balance;
+    var String input;
+    var char c;
+    var boolean exit;
+
+    do Main.header();
+    do Output.println();
+    while(true) {
+      let input = Keyboard.readLine("Enter the input: ");
+      if (input.length() > 0) {
+        if(input.charAt(0) = 81) {
+          do Output.printString("<<<QUITTING>>>");
+          do input.dispose();
+          do Sys.halt();
+        }
+      }
+      let balance = PerfectlyBalanced.new(input);
+      do Screen.clearScreen();
+      do Output.moveCursor(0, 0);
+      do Main.header();
+      do balance.output();
+      do balance.dispose();
+    }
+
+    return;
+  }
+
+  function void header() {
+    do Output.printString("<<<PROGRAM: PerfectlyBalanced>>>");
+    do Output.println();
+    do Output.printString("<<<DESC: Does input #ofx == #ofy?>>>");
+    do Output.println();
+    do Output.printString("<<<Press Q to quit execution>>>");
+    do Output.println();
+    do Output.println();
+
+    return;
+  }
+}
